@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Hey handsome ❤️ </title>
+
+<style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Trebuchet MS", Arial, sans-serif;
+
+      background: linear-gradient(135deg, #ffd6e7, #ffeef5);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 0;
+
+      color: #4a2635;
+    }
+
+    /* Main card */
+    .container {
+      width: 90%;
+      max-width: 500px;
+
+      background: rgba(255, 255, 255, 0.9);
+
+      padding: 40px;
+      border-radius: 25px;
+
+      box-shadow: 0 15px 40px rgba(180, 80, 120, 0.2);
+
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 0;
+      color: #d94f83;
+      font-size: 32px;
+    }
+
+    .subtitle {
+      margin-bottom: 30px;
+      color: #8c6070;
+      font-size: 17px;
+    }
+
+    /* Checklist */
+    .task {
+      display: flex;
+      align-items: center;
+      width: 100%;
+
+      background: #fff5f9;
+
+      padding: 15px;
+      margin: 12px 0;
+
+      border-radius: 14px;
+
+      cursor: pointer;
+
+      transition: 0.2s;
+    }
+
+    .task:hover {
+      transform: translateY(-2px);
+      background: #ffe8f1;
+      box-shadow: 0 5px 15px rgba(200, 80, 120, 0.12);
+    }
+
+    /* Custom checkbox */
+    .task input {
+      appearance: none;
+
+      width: 22px;
+      height: 22px;
+
+      border: 2px solid #e477a0;
+      border-radius: 7px;
+
+      margin-right: 14px;
+
+      cursor: pointer;
+
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .task input:checked {
+      background: #e477a0;
+    }
+
+    .task input:checked::after {
+      content: "✓";
+
+      position: absolute;
+
+      color: white;
+      font-weight: bold;
+
+      left: 4px;
+      top: -1px;
+    }
+
+    .task label {
+      cursor: pointer;
+      font-size: 17px;
+    }
+
+    /* Popup background */
+    .popup {
+      display: none;
+      z-index: 10;
+
+      position: fixed;
+      inset: 0;
+
+      background: rgba(60, 20, 40, 0.55);
+
+      justify-content: center;
+      align-items: center;
+
+      padding: 20px;
+
+      animation: fadeIn 0.2s ease;
+    }
+
+    /* Popup box */
+    .popup-content {
+      background: white;
+
+      width: 100%;
+      max-width: 380px;
+
+      padding: 35px 30px;
+
+      border-radius: 25px;
+
+      text-align: center;
+
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+
+      animation: popIn 0.25s ease;
+    }
+
+    .popup-content h2 {
+      margin-top: 0;
+
+      color: #d94f83;
+
+      font-size: 27px;
+    }
+
+    .popup-content p {
+      font-size: 18px;
+      color: #694554;
+
+      margin: 20px 0;
+    }
+
+    /* Buttons */
+    .popup button {
+      border: none;
+
+      padding: 12px 20px;
+
+      margin: 6px;
+
+      border-radius: 12px;
+
+      font-size: 15px;
+      font-weight: bold;
+
+      cursor: pointer;
+
+      transition: 0.2s;
+    }
+
+    .yes-button {
+      background: #e477a0;
+      color: white;
+    }
+
+    .yes-button:hover {
+      background: #d95d8b;
+      transform: scale(1.05);
+    }
+
+    .no-button {
+      background: #f0e1e6;
+      color: #704b59;
+    }
+
+    .no-button:hover {
+      background: #e6ccd5;
+      transform: scale(1.05);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes popIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1 class="subtitle">❤️ Matīsa To Do List ❤️</h1>
+
+<div class="task">
+<input type="checkbox" 
+id="task1"
+onclick="showPopup('Did you really text me?'); checkAllTasks()">
+
+<label for="task1">
+Text Ieva </label> </div>
+
+
+<div class="task">
+<input type="checkbox" id="task2"
+onclick="showPopup('Did you really see me?'); checkAllTasks()">
+
+<label for="task2">
+See Ieva </label> </div>
+
+
+<div class="task">
+<input type="checkbox" id="task3"
+onclick="showPopup('Did you really hold my hand?'); checkAllTasks()">
+
+<label for="task3">
+Hold Ievas hand </label> </div>
+
+
+<div class="task">
+<input type="checkbox" id="task4"
+onclick="showPopup('Did you really cuddle with me?'); checkAllTasks()">
+
+<label for="task4">
+Cuddle with Ieva </label> </div>
+
+
+<div class="task">
+<input type="checkbox" id="task5"
+onclick="showPopup('Did you really kiss me?'); checkAllTasks()">
+
+<label for="task5">
+Kiss Ieva </label> </div>
+
+
+<div class="task">
+<input type="checkbox" id="task6"
+onclick="showPopup('Did you really compliment me?'); checkAllTasks()">
+
+<label for="task6">
+Compliment Ieva </label> </div>
+
+
+<div class="task">
+<input type="checkbox" id="task7"
+onclick="showPopup('Did you really make me laugh?'); checkAllTasks()">
+
+<label for="task7">
+Make Ieva laugh </label> </div>
+
+</div>
+
+<div class="popup" id="popup">
+<div class="popup-content">
+<h2>Sorryy I gotta double check</h2>
+
+<p id="popupText">Are you sure?</p>
+
+<button
+        class="yes-button"
+        type="button"
+        onclick="showThankYou()"
+      >
+        Yes (yayy) 
+      </button>
+
+      <button
+        class="no-button"
+        type="button"
+        onclick="showDoIt()"
+      >
+        No (BOOO) 
+      </button>
+
+    </div>
+
+  </div>
+
+<div class="popup" id="finalPopup">
+
+    <div class="popup-content">
+
+      <h2> ❤️❤️❤️</h2>
+
+      <p>
+        Thank you baby now I'm happy!! &lt;3
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    /* Opens the normal popup */
+
+    function showPopup(message) {
+
+      document.getElementById("popupText").textContent = message;
+
+      document.getElementById("popup").style.display = "flex";
+    }
+
+
+    /* YES button */
+
+    function showThankYou() {
+
+      document.getElementById("popupText").textContent =
+        "Thank you baby <3";
+
+      setTimeout(closePopup, 1500);
+    }
+
+
+    /* NO button */
+
+    function showDoIt() {
+
+      document.getElementById("popupText").textContent =
+        "Do it then :(";
+    }
+
+
+    /* Closes normal popup */
+
+    function closePopup() {
+
+      document.getElementById("popup").style.display = "none";
+    }
+
+
+    /* Checks if all four tasks are completed */
+
+    function checkAllTasks() {
+
+      const tasks = document.querySelectorAll(
+        'input[type="checkbox"]'
+      );
+
+      const allChecked =
+        [...tasks].every(task => task.checked);
+
+
+      if (allChecked) {
+
+        setTimeout(function() {
+
+          document.getElementById("finalPopup").style.display = "flex";
+
+        }, 500);
+
+      }
+
+    }
+
+  </script>
+
+
+
+</body>
+</html>
